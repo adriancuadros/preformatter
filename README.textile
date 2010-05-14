@@ -1,0 +1,41 @@
+h1. Preformatter
+
+p. Sometimes you have to create some naggy before_validation methods to format strings the way you need to. I find this to be a cleaner way to do it and less painful to maintain.
+
+p. The gem helps you by deleting spaces, special characters or replacing accents in the fields you need. 
+
+p. For now the gem is usable only in Rails 2.3.x projects, in the near future it will be updated for Rails 3.
+
+***************************************************************************
+
+h2. Install
+
+*gem install preformatter*
+
+In the environment.rb you must configure the gem as following:
+
+bc. config.gem 'preformatter'
+
+***************************************************************************
+
+h2. Usage
+
+All the code below goes directly into the model you want to use the preformatting, the formatting will be done before validation.
+
+h3. Deleting white spaces
+
+bc. no_space_in 	:field1, :field2, :field3
+
+p. If the user input is for instance _'some words with spaces'_ it will be transformed into _'somewordswithspaces'_
+
+h3. Replacing accents
+
+bc. no_accents_in	:field1, :field2, :field3
+
+p. If the user input is _'Sómé wórds wíth áccénts'_ it will be transformed into _'Some words with accents'_
+
+***************************************************************************
+
+h2. Copyright
+
+Copyright (c) 2010 Innku, PrescriptionRex. See LICENSE for details.
