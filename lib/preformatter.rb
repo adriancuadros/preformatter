@@ -1,5 +1,11 @@
 module Preformatter
-          
+  
+  def self.included(base)
+    base.extend ClassMethods
+  end
+  
+  module ClassMethods
+    
     def no_spaces_in(*args) 
       args.each do |field|
         before_validation do |record|
@@ -23,8 +29,23 @@ module Preformatter
       end
     end
     
-    def no_special_characters_in(*args)
-      
+    def no_special_characters(chars, options = {})
+      options[:in] ||= []
+      options[:in].each do |field|
+        before_validation do |record|
+          attribute = record.send("#{field.to_s}")
+          unless attribute.nil?
+            attribute = attribute.delete!(chars)
+            RAILS_DEFAULT_LOGGER.debug attribute
+          end
+        end
+      end
     end
+    
+  end
       
+end
+
+class ActiveRecord::Base
+  include Preformatter
 end

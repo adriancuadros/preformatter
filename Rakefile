@@ -6,7 +6,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "preformatter"
     gem.summary = %Q{Does basic preformatting of information before creating a record}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.description = %Q{The gem helps you by deleting spaces, special characters or replacing accents in the fields you need.}
     gem.email = "adrian@innku.com"
     gem.homepage = "http://github.com/adriancuadros/preformatter"
     gem.authors = ["Adrian Cuadros", "Eduardo Moreno", "Andres Paglayan"]
