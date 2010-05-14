@@ -6,6 +6,8 @@ p. The gem helps you by deleting spaces, special characters or replacing accents
 
 p. For now the gem is usable only in Rails 2.3.x projects, in the near future it will be updated for Rails 3.
 
+p. This gem was built with code from the EMR Bear project PrescriptionRex
+
 ***************************************************************************
 
 h2. Install
@@ -33,6 +35,14 @@ h3. Replacing accents
 bc. no_accents_in	:field1, :field2, :field3
 
 p. If the user input is _'Sómé wórds wíth áccénts'_ it will be transformed into _'Some words with accents'_
+
+h3. Replacing special characters
+
+p. This method works a little different becouse you have to provide a string with all the special characters you dont want in an attribute.
+
+bc. no_special_characters '(){}-', :in => [:phone, :fax, :id]
+
+p. If the user input is _'(81)-83987832 {345}'_ it will be transformed into '8183987832'
 
 ***************************************************************************
 
