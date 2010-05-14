@@ -22,5 +22,9 @@ module Preformatter
         end
       end
     end
+    
+    def no_special_characters_in(*args)
+      
+    end
       
 end
