@@ -19,7 +19,9 @@ module Preformatter
       args.each do |field|
         before_validation do |record|
           attribute = record.send("#{field.to_s}")
-          replace = {'á' => 'a','é' => 'e','í' => 'i','ó' => 'o','ú' => 'u'}
+          replace = {'á' => 'a','é' => 'e','í' => 'i','ó' => 'o','ú' => 'u', 
+                     'ñ' => 'n', 'Ñ' => 'N', 
+                     'Á' => 'A' , 'É' => 'E',  'Í' => 'I', 'Ó' => 'O','Ú' => 'U'}
           unless attribute.nil?
             attribute.gsub!(/[#{replace.keys.join('|')}]/).each do |c|
               replace[c]
