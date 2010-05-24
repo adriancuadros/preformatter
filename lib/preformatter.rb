@@ -36,7 +36,7 @@ module Preformatter
         before_validation do |record|
           attribute = record.send("#{field.to_s}")
           unless attribute.nil?
-            attribute = Preformatter.replace_spanish_chars_in(attribute)
+            record.send "#{field.to_s}=", Preformatter.replace_spanish_chars_in(attribute)
           end
         end
       end
