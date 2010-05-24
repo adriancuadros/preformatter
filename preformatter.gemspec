@@ -24,9 +24,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/preformatter.rb",
-     "preformatter.gemspec",
-     "test/helper.rb",
-     "test/test_preformatter.rb"
+     "preformatter.gemspec"
   ]
   s.homepage = %q{http://github.com/adriancuadros/preformatter}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -34,8 +32,22 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{Does basic preformatting of information before creating a record}
   s.test_files = [
-    "test/helper.rb",
-     "test/test_preformatter.rb"
+    "test/app/controllers/application_controller.rb",
+     "test/app/helpers/application_helper.rb",
+     "test/config/boot.rb",
+     "test/config/environment.rb",
+     "test/config/environments/development.rb",
+     "test/config/environments/production.rb",
+     "test/config/environments/test.rb",
+     "test/config/initializers/backtrace_silencers.rb",
+     "test/config/initializers/inflections.rb",
+     "test/config/initializers/mime_types.rb",
+     "test/config/initializers/new_rails_defaults.rb",
+     "test/config/initializers/session_store.rb",
+     "test/config/routes.rb",
+     "test/db/seeds.rb",
+     "test/test/performance/browsing_test.rb",
+     "test/test/test_helper.rb"
   ]
 
   if s.respond_to? :specification_version then
