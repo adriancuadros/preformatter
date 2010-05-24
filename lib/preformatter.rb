@@ -4,11 +4,11 @@ module Preformatter
     base.extend ClassMethods
   end
   
-  def has_spanish_chars?(string)
+  def self.has_spanish_chars?(string)
     string.index(/[áéíóúñÑÁÉÍÓÚ]/)
   end
   
-  def replace_spanish_chars_in(string)
+  def self.replace_spanish_chars_in(string)
     replace = {'á' => 'a','é' => 'e','í' => 'i','ó' => 'o','ú' => 'u', 
                'ñ' => 'n', 'Ñ' => 'N', 
                'Á' => 'A' , 'É' => 'E',  'Í' => 'I', 'Ó' => 'O','Ú' => 'U'}
@@ -36,7 +36,7 @@ module Preformatter
         before_validation do |record|
           attribute = record.send("#{field.to_s}")
           unless attribute.nil?
-            attribute = replace_spanish_chars_in(attribute)
+            attribute = self.replace_spanish_chars_in(attribute)
           end
         end
       end
@@ -49,7 +49,6 @@ module Preformatter
           attribute = record.send("#{field.to_s}")
           unless attribute.nil?
             attribute = attribute.delete!(chars)
-            RAILS_DEFAULT_LOGGER.debug attribute
           end
         end
       end

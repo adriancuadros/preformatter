@@ -18,5 +18,7 @@ coverage
 rdoc
 pkg
 poc
+poc/*
+test
 
 ## PROJECT::SPECIFIC
