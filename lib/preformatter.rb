@@ -4,6 +4,22 @@ module Preformatter
     base.extend ClassMethods
   end
   
+  def has_spanish_chars?(string)
+    string.index(/[áéíóúñÑÁÉÍÓÚ]/)
+  end
+  
+  def replace_spanish_chars_in(string)
+    replace = {'á' => 'a','é' => 'e','í' => 'i','ó' => 'o','ú' => 'u', 
+               'ñ' => 'n', 'Ñ' => 'N', 
+               'Á' => 'A' , 'É' => 'E',  'Í' => 'I', 'Ó' => 'O','Ú' => 'U'}
+    unless string.nil?
+      string_with_no_spanish_chars = string.gsub(/[#{replace.keys.join('|')}]/).each do |c|
+        replace[c]
+      end
+      return string_with_no_spanish_chars
+    end
+  end
+  
   module ClassMethods
     
     def no_spaces_in(*args) 
@@ -19,13 +35,8 @@ module Preformatter
       args.each do |field|
         before_validation do |record|
           attribute = record.send("#{field.to_s}")
-          replace = {'á' => 'a','é' => 'e','í' => 'i','ó' => 'o','ú' => 'u', 
-                     'ñ' => 'n', 'Ñ' => 'N', 
-                     'Á' => 'A' , 'É' => 'E',  'Í' => 'I', 'Ó' => 'O','Ú' => 'U'}
           unless attribute.nil?
-            attribute.gsub!(/[#{replace.keys.join('|')}]/).each do |c|
-              replace[c]
-            end
+            attribute = replace_spanish_chars_in(attribute)
           end
         end
       end
@@ -44,7 +55,16 @@ module Preformatter
       end
     end
     
+    def include_ascii_for_fields(*args)
+      args.each do |field|
+        before_validation do |record|
+          
+        end
+      end
+    end
+    
   end
+  
       
 end
 
