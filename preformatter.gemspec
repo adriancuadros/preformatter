@@ -45,6 +45,7 @@ Gem::Specification.new do |s|
      "test/config/initializers/new_rails_defaults.rb",
      "test/config/initializers/session_store.rb",
      "test/config/routes.rb",
+     "test/db/migrate/20100524181952_add_ascii_name_to_users.rb",
      "test/db/seeds.rb",
      "test/test/performance/browsing_test.rb",
      "test/test/test_helper.rb"
