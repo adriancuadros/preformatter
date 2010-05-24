@@ -5,7 +5,7 @@ module Preformatter
   end
   
   def self.has_spanish_chars?(string)
-    string.index(/[áéíóúñÑÁÉÍÓÚ]/)
+    string.index(/[áéíóúñÑÁÉÍÓÚ]/) rescue nil
   end
   
   def self.replace_spanish_chars_in(string)
@@ -57,7 +57,10 @@ module Preformatter
     def include_ascii_for_fields(*args)
       args.each do |field|
         before_validation do |record|
-          
+          attribute = record.send("#{field.to_s}")
+          if Preformatter.has_spanish_chars?(attribute)
+            record.send "ascii_#{field.to_s}=", Preformatter.replace_spanish_chars_in(attribute)
+          end
         end
       end
     end
