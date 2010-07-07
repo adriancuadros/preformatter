@@ -31,6 +31,25 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Does basic preformatting of information before creating a record}
+  s.test_files = [
+    "test/app/controllers/application_controller.rb",
+     "test/app/helpers/application_helper.rb",
+     "test/config/boot.rb",
+     "test/config/environment.rb",
+     "test/config/environments/development.rb",
+     "test/config/environments/production.rb",
+     "test/config/environments/test.rb",
+     "test/config/initializers/backtrace_silencers.rb",
+     "test/config/initializers/inflections.rb",
+     "test/config/initializers/mime_types.rb",
+     "test/config/initializers/new_rails_defaults.rb",
+     "test/config/initializers/session_store.rb",
+     "test/config/routes.rb",
+     "test/db/migrate/20100524181952_add_ascii_name_to_users.rb",
+     "test/db/seeds.rb",
+     "test/test/performance/browsing_test.rb",
+     "test/test/test_helper.rb"
+  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
