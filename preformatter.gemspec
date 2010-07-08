@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{preformatter}
-  s.version = "0.7.0"
+  s.version = "0.7.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Adrian Cuadros", "Eduardo Moreno", "Andres Paglayan"]
-  s.date = %q{2010-07-07}
+  s.date = %q{2010-07-08}
   s.description = %q{The gem helps you by deleting spaces, special characters or replacing accents in the fields you need.}
   s.email = %q{adrian@innku.com}
   s.extra_rdoc_files = [
