@@ -65,12 +65,12 @@ module Preformatter
       end
     end
     
-    def remove_extra_white_spaces(*args) 
+    def remove_extra_white_spaces(*args)
       args.each do |field|
-        before_validation do |record|
+        before_save do |record|
           attribute = record.send("#{field.to_s}")
-          attribute = attribute.strip.gsub(/[ ]+/, ' ') unless attribute.nil?
-          attribute
+          attribute.strip! if !attribute.nil? and !attribute.strip!.nil?
+          attribute.gsub!(/[ ]+/, ' ') if !attribute.nil? and !attribute.gsub!(/[ ]+/, ' ').nil?
         end
       end
     end
