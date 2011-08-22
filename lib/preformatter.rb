@@ -1,3 +1,4 @@
+# encoding: utf-8
 module Preformatter
   
   def self.included(base)
